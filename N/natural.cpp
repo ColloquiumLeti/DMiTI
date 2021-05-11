@@ -15,15 +15,15 @@ public:
 
 	//Конструкторы
 	Natural(string number) { //Инициализация объекта типа Natural(только гетеро, не гомо)
-		int counter=0;
+		int counter = 0;
 		bool true_input = 1;
 		setlocale(LC_ALL, "Russian");
 		for (counter = 0; counter < number.length(); counter++) { //Проверка на корректный ввод
 			if (!isdigit(number[counter]) && number[counter] != '.') true_input = false;
 		}
-		if (true_input==true)
+		if (true_input == true)
 		{
-			for (counter = 0; counter < number.length(); counter++) { 
+			for (counter = 0; counter < number.length(); counter++) {
 				if (number[counter] == '.') break;
 			}
 			if (counter != 0) number.erase(counter); //Если число - десятичная дробь, то от числа берется только целая часть
@@ -65,21 +65,18 @@ public:
 	}
 
 	//Методы для натуральных чисел
-	
+
 	//N-1 Сравнение натуральных чисел: 2 - если первое больше второго, 0 - если равны, 1- иначе
 	int COM_NN_D(Natural number) {
 		if (length > number.Length()) return 2;
-		else
-		{
+		else {
 			if (length < number.Length()) return 1;
-			else
-			{
+			else {
 				int* digits = number.Digits_of_number();
 				int counter = 0;
-				while ((digits_of_number[counter] == digits[counter])&&(counter < length-1)) counter++;
-				if (counter==length-1 && digits_of_number[counter] == digits[counter]) return 0;
-				else
-				{
+				while ((digits_of_number[counter] == digits[counter]) && (counter < length - 1)) counter++;
+				if (counter == length - 1 && digits_of_number[counter] == digits[counter]) return 0;
+				else {
 					if (digits_of_number[counter] > digits[counter]) return 2;
 					else return 1;
 				}
@@ -87,15 +84,14 @@ public:
 		}
 	}
 
-    //N-2 Проверка на ноль: если число не равно нулю, то "да"(1) иначе "нет"(0)
+	//N-2 Проверка на ноль: если число не равно нулю, то "да"(1) иначе "нет"(0)
 	bool NZER_N_B() {
 		if (digits_of_number[0] == 0) return 0;
 		else return 1;
-	};
+	}
 
 	//N-3 Добавление 1 к натуральному числу
-	Natural ADD_1N_N()
-	{
+	Natural ADD_1N_N() {
 		int Length = length + 1;
 		int* n = new int[Length];
 		n[0] = 0;
@@ -103,13 +99,11 @@ public:
 			n[i + 1] = digits_of_number[i];
 		n[Length - 1]++;
 		for (int i = Length - 1; i >= 1; i--)
-			if (n[i] == 10)
-			{
+			if (n[i] == 10) {
 				n[i] = 0;
 				n[i - 1]++;
 			}
-		if (!n[0])
-		{
+		if (!n[0]) {
 			Length--;
 			int* c = new int[Length];
 			for (int i = 0; i < Length; i++)
@@ -130,18 +124,15 @@ public:
 		}
 		else {
 			digits_min = digits_of_number; length_min = length;
-			digits_max = number.Digits_of_number(); length_diff = number.Length()-length_min;
+			digits_max = number.Digits_of_number(); length_diff = number.Length() - length_min;
 		}
-		for (int i = length_min-1; i >= 0; i--)
-		{
+		for (int i = length_min - 1; i >= 0; i--) {
 			result = to_string((digits_max[i + length_diff] + digits_min[i] + number_of_tens) % 10) + result;
 			number_of_tens = (digits_max[i + length_diff] + digits_min[i] + number_of_tens) / 10;
 		}
 		if (length_diff == 0 && number_of_tens != 0) result = to_string(number_of_tens) + result;
-		else
-		{
-			for (int i = length_diff-1; i >= 0; i--)
-			{
+		else {
+			for (int i = length_diff - 1; i >= 0; i--) {
 				result = to_string((digits_max[i] + number_of_tens) % 10) + result;
 				number_of_tens = (digits_max[i] + number_of_tens) / 10;
 			}
@@ -150,13 +141,12 @@ public:
 	}
 
 	//N-5 Вычитание из первого большего натурального числа второго меньшего или равного
-	Natural SUB_NN_N(Natural number)
-	{
+	Natural SUB_NN_N(Natural number) {
 		int i;
 		string result = "";
 		if (this->COM_NN_D(number) == 0) return Natural("0");
 		else {
-			if (this->COM_NN_D(number) == 2){
+			if (this->COM_NN_D(number) == 2) {
 				bool zaim = 0;
 				for (i = length - 1; i >= 0; i--)
 				{
@@ -178,7 +168,7 @@ public:
 				}
 				return Natural(result);
 			}
-			else{
+			else {
 				cout << "Нарушение правил натурального вычитания" << endl;
 				return Natural("0");
 			}
@@ -190,11 +180,11 @@ public:
 		if (numeral == 0 || digits_of_number[0] == 0) return Natural("0"); //Умножение на 0 
 		else
 		{
-			string result="";
+			string result = "";
 			int number_of_tens = 0;
 			for (int i = length; i > 0; i--) //Умножение на цифру
 			{
-				result = to_string((numeral * digits_of_number[i - 1] + number_of_tens)%10) + result;
+				result = to_string((numeral * digits_of_number[i - 1] + number_of_tens) % 10) + result;
 				number_of_tens = (numeral * digits_of_number[i - 1] + number_of_tens) / 10;
 			}
 			if (number_of_tens != 0) result = to_string(number_of_tens) + result; //Если наибольший разряд результата совпадает с разрядом исходного числа
@@ -219,19 +209,16 @@ public:
 	}
 
 	//N-8 Умножение натуральных чисел
-	Natural MUL_NN_N(Natural number)
-	{
+	Natural MUL_NN_N(Natural number) {
 		int k, p = 0, * sosi = number.Digits_of_number();
 		int Size = length > number.Length() ? length * 2 : number.Length() * 2;
 		if ((digits_of_number[0] == 0 && length == 1) || (sosi[0] == 0 && number.Length() == 1)) {
 			return Natural("0");
 		}
-		else
-		{
+		else {
 			Natural proizved("0");
 			Natural result("0");
-			for (int i = number.Length() - 1; i >= 0; i--)
-			{
+			for (int i = number.Length() - 1; i >= 0; i--) {
 				proizved = this->MUL_ND_N(sosi[i]);
 				proizved = proizved.MUL_Nk_N(number.Length() - i - 1);
 				result = result.ADD_NN_N(proizved);
@@ -248,474 +235,143 @@ public:
 
 	//N-10 Вычисление первой цифры деления большего натурального на меньшее, домноженное на 10^k,где k - номер позиции этой цифры (номер считается с нуля)
 	Natural DIV_NN_Dk(Natural number) {
-
-		int size_max, size_min, k = 0, i, size_result = 0, test_result, * max = 0, * min = 0, no_arr_min = 0;
-
-		long int no_arr_max = 0, no_arr_result = 0;
-
-		if (this->COM_NN_D(number) == 0) {
-
-			cout << 1;
-
-			return Natural(0);
-
+		int length = 1;
+		int* result;
+		result = new int[length + 1];
+		result[0] = 1;
+		Natural N_1(Digits_of_number(), Length());
+		Natural N_2 = number;
+		Natural rez(result, length);
+		switch (N_1.COM_NN_D(N_2)) {
+		case 0: {
+			length = 0;
+			break;
 		}
-
-		if (this->COM_NN_D(number) == 1) {
-
-			size_min = length;
-
-			size_max = number.Length();
-
-			min = digits_of_number;
-
-			max = number.Digits_of_number();
-
+		case 1: {
+			length = N_2.Length() - N_1.Length() - 1;
+			while (N_1.MUL_NN_N(rez.ADD_1N_N().MUL_Nk_N(length)).COM_NN_D(N_2) != 2) {
+				rez = rez.ADD_1N_N();
+			}
+			break;
 		}
-
-		if (this->COM_NN_D(number) == 2) {
-
-			size_max = length;
-
-			size_min = number.Length();
-
-			max = digits_of_number;
-
-			min = number.Digits_of_number();
-
+		case 2: {
+			length = N_1.Length() - N_2.Length() - 1;
+			while (N_1.COM_NN_D(N_2.MUL_NN_N(rez.ADD_1N_N().MUL_Nk_N(length))) != 1) {
+				rez = rez.ADD_1N_N();
+			}
+			break;
 		}
-
-		for (i = size_min - 1; i > -1; i--) {
-
-			no_arr_min = no_arr_min + min[i] * pow(10, size_min - i - 1);
-
 		}
-
-		for (i = size_max - 1; i > -1; i--) {
-
-			no_arr_max = no_arr_max + max[i] * pow(10, size_max - i - 1);
-
-		}
-
-		if (no_arr_min == 0) {
-
-			cout << "На ноль делить нельзя!" << endl;
-
-		}
-
-		while ((no_arr_result / 10) > 0) {
-
-			k++;
-
-			no_arr_result = no_arr_result / 10;
-
-		}
-
-		no_arr_result = no_arr_result * pow(10, k);
-
-		test_result = no_arr_result;
-
-		while ((test_result / 10) > 0) {
-
-			size_result++;
-
-			test_result = test_result / 10;
-
-		}
-
-		string result = "";
-
-		for (i = size_result + 1; i > 0; i--) {
-
-			result = to_string(no_arr_result % 10) + result;
-
-			no_arr_result = no_arr_result / 10;
-
-		}
-
-		return Natural(result);
-
+		return rez.MUL_Nk_N(length);
 	}
-	
+
 	//N-11 Частное от деления большего натурального числа на меньшее или равное натуральное с остатком(делитель отличен от нуля)
-
 	Natural DIV_NN_N(Natural number) {
-
-		int size_max, size_min, k = 0, i, size_result = 0, * max = 0, * min = 0, no_arr_min = 0;
-
-		long double no_arr_max = 0, no_arr_result = 0, test_result;
-
-		int* result = new int[size_result];
-
-		if (this->COM_NN_D(number) == 0) {
-
-			cout << 1;
-
-			return Natural(0);
-
+		int length = 1;
+		int* result;
+		result = new int[length + 1];
+		result[0] = 0;
+		Natural N_1(Digits_of_number(), Length());
+		Natural N_2 = number;
+		Natural rez(result, length);
+		switch (N_1.COM_NN_D(N_2)) {
+		case 0: {
+			length = 0;
+			break;
 		}
-
-		if (this->COM_NN_D(number) == 1) {
-
-			size_min = length;
-
-			size_max = number.Length();
-
-			min = digits_of_number;
-
-			max = number.Digits_of_number();
-
-		}
-
-		if (this->COM_NN_D(number) == 2) {
-
-			size_max = length;
-
-			size_min = number.Length();
-
-			max = digits_of_number;
-
-			min = number.Digits_of_number();
-
-		}
-
-		for (i = size_min - 1; i > -1; i--) {
-
-			no_arr_min = no_arr_min + min[i] * pow(10, size_min - i - 1);
-
-		}
-
-		for (i = size_max - 1; i > -1; i--) {
-
-			no_arr_max = no_arr_max + max[i] * pow(10, size_max - i - 1);
-
-		}
-
-		if (no_arr_min == 0) {
-
-			cout << "На ноль делить нельзя!" << endl;
-
-		}
-
-		no_arr_result = long double(no_arr_max / no_arr_min);
-
-		if (int(no_arr_result) == no_arr_result) {
-
-			test_result = no_arr_result;
-
-			while ((test_result / 10) > 0) {
-
-				size_result++;
-
-				test_result = test_result / 10;
-
+		case 1: {
+			while(N_2.Length() - N_1.Length() > 0) {
+				rez = rez.ADD_NN_N(N_1.DIV_NN_Dk(N_2));
+				N_2 = N_2.SUB_NN_N(N_1.MUL_NN_N(N_1.DIV_NN_Dk(N_2)));
 			}
-
-			string result = "";
-
-			for (i = size_result + 1; i > 0; i--) {
-
-				result = to_string(int(no_arr_result) % 10) + result;
-
-				no_arr_result = no_arr_result / 10;
-
+			break;
+		}
+		case 2: {
+			while (N_1.Length() - N_2.Length() > 0) {
+				rez = rez.ADD_NN_N(N_1.DIV_NN_Dk(N_2));
+				N_1 = N_1.SUB_NN_N(N_2.MUL_NN_N(N_1.DIV_NN_Dk(N_2)));
 			}
-
-			return Natural(result);
-
+			break;
 		}
-
-		else {
-
-			cout << no_arr_result;
-
-			return Natural(0);
-
 		}
-
+		return rez;
 	}
 
 	//N-12 Остаток от деления большего натурального числа на меньшее или равное натуральное(делитель отличен от нуля)
-
 	Natural MOD_NN_N(Natural number) {
-
-		int size_max, size_min, k = 0, i, size_result = 0, * max = 0, * min = 0;
-
-		long int no_arr_max = 0, no_arr_result = 0, test_result, no_arr_min = 0;
-
-		if (this->COM_NN_D(number) == 0) {
-
-			cout << 1;
-
-			return Natural(0);
-
+		Natural N_1(Digits_of_number(), Length());
+		Natural N_2 = number;
+		switch (N_1.COM_NN_D(N_2)) {
+		case 0: {
+			return Natural("0");
+			break;
 		}
-
-		if (this->COM_NN_D(number) == 1) {
-
-			size_min = length;
-
-			size_max = number.Length();
-
-			min = digits_of_number;
-
-			max = number.Digits_of_number();
-
+		case 1: {
+			while (N_2.Length() - N_1.Length() > 0) {
+				N_2 = N_2.SUB_NN_N(N_1.MUL_NN_N(N_1.DIV_NN_Dk(N_2)));
+			}
+			return N_2;
+			break;
 		}
-
-		if (this->COM_NN_D(number) == 2) {
-
-			size_max = length;
-
-			size_min = number.Length();
-
-			max = digits_of_number;
-
-			min = number.Digits_of_number();
-
+		case 2: {
+			while (N_1.Length() - N_2.Length() > 0) {
+				N_1 = N_1.SUB_NN_N(N_2.MUL_NN_N(N_1.DIV_NN_Dk(N_2)));
+			}
+			return N_1;
+			break;
 		}
-
-		for (i = size_min - 1; i > -1; i--) {
-
-			no_arr_min = no_arr_min + min[i] * pow(10, size_min - i - 1);
-
 		}
-
-		for (i = size_max - 1; i > -1; i--) {
-
-			no_arr_max = no_arr_max + max[i] * pow(10, size_max - i - 1);
-
-		}
-
-		if (no_arr_min == 0) {
-
-			cout << "На ноль делить нельзя!" << endl;
-
-		}
-
-		no_arr_result = no_arr_max % no_arr_min;
-
-		test_result = no_arr_result;
-
-		while ((test_result / 10) > 0) {
-
-			size_result++;
-
-			test_result = test_result / 10;
-
-		}
-
-		string result = "";
-
-		for (i = size_result + 1; i > 0; i--) {
-
-			result = to_string(int(no_arr_result) % 10) + result;
-
-			no_arr_result = no_arr_result / 10;
-
-		}
-
-		return Natural(result);
-
 	}
 
 	//N-13 НОД натуральных чисел
-
 	Natural GCF_NN_N(Natural number) {
-
-		int size_max, size_min, k = 0, i, size_result = 0, test_result, * max = 0, * min = 0, no_arr_min = 0, x, y;
-
-		long int no_arr_max = 0, no_arr_result = 0;
-
-		if (this->COM_NN_D(number) == 0) {
-
-			cout << 1;
-
-			return Natural(0);
-
+		int length = 1;
+		int* result;
+		result = new int[length + 1];
+		result[0] = 0;
+		Natural rez(result, length);
+		Natural N_1(Digits_of_number(), Length());
+		Natural N_2 = number;
+		while (N_1.Digits_of_number()[0] != 0 && N_2.Digits_of_number()[0] != 0){
+			switch (N_1.COM_NN_D(N_2)) {
+			case 0: {
+				break;
+			}
+			case 1: {
+				N_2 = N_2.MOD_NN_N(N_1);
+				break;
+			}
+			case 2: {
+				N_1 = N_1.MOD_NN_N(N_2);
+				break;
+			}
+			}
 		}
+		switch (N_1.COM_NN_D(N_2)) {
+		case 0: {
 
-		if (this->COM_NN_D(number) == 1) {
-
-			size_min = length;
-
-			size_max = number.Length();
-
-			min = digits_of_number;
-
-			max = number.Digits_of_number();
-
+			return N_1;
+			break;
 		}
-
-		if (this->COM_NN_D(number) == 2) {
-
-			size_max = length;
-
-			size_min = number.Length();
-
-			max = digits_of_number;
-
-			min = number.Digits_of_number();
-
+		case 1: {
+			return N_2;
+			break;
 		}
-
-		for (i = size_min - 1; i > -1; i--) {
-
-			no_arr_min = no_arr_min + min[i] * pow(10, size_min - i - 1);
-
+		case 2: {
+			return N_1;
+			break;
 		}
-
-		for (i = size_max - 1; i > -1; i--) {
-
-			no_arr_max = no_arr_max + max[i] * pow(10, size_max - i - 1);
-
 		}
-
-		if (no_arr_min == 0) {
-
-			cout << "Для 0 нельзя найти НОД!" << endl;
-
-			Natural(0);
-
-		}
-
-		while (no_arr_max % no_arr_min != 0) { // Находим НОД
-
-			x = no_arr_max / no_arr_min;
-
-			y = no_arr_min;
-
-			no_arr_min = no_arr_max - (no_arr_min * x);
-
-			no_arr_max = y;
-
-		}
-
-		no_arr_result = no_arr_min;
-
-		test_result = no_arr_result;
-
-		while ((test_result / 10) > 0) {
-
-			size_result++;
-
-			test_result = test_result / 10;
-
-		}
-
-		string result = "";
-
-		for (i = size_result + 1; i > 0; i--) {
-
-			result = to_string(no_arr_result % 10) + result;
-
-			no_arr_result = no_arr_result / 10;
-
-		}
-
-		return Natural(result);
-
+		
 	}
 
 	//N-14 НОК натуральных чисел
-
 	Natural LCM_NN_N(Natural number) {
-
-		int size_max, size_min, k = 0, i, size_result = 0, test_result, * max = 0, * min = 0, no_arr_min = 0, x, y, nok, nod, test_nod;
-
-		long int no_arr_max = 0, no_arr_result = 0;
-
-		if (this->COM_NN_D(number) == 0) {
-
-			cout << 1;
-
-			return Natural(0);
-
-		}
-
-		if (this->COM_NN_D(number) == 1) {
-
-			size_min = length;
-
-			size_max = number.Length();
-
-			min = digits_of_number;
-
-			max = number.Digits_of_number();
-
-		}
-
-		if (this->COM_NN_D(number) == 2) {
-
-			size_max = length;
-
-			size_min = number.Length();
-
-			max = digits_of_number;
-
-			min = number.Digits_of_number();
-
-		}
-
-		for (i = size_min - 1; i > -1; i--) {
-
-			no_arr_min = no_arr_min + min[i] * pow(10, size_min - i - 1);
-
-		}
-
-		for (i = size_max - 1; i > -1; i--) {
-
-			no_arr_max = no_arr_max + max[i] * pow(10, size_max - i - 1);
-
-		}
-
-		if (no_arr_min == 0) {
-
-			cout << "Для 0 нельзя найти НОК!" << endl;
-
-			Natural(0);
-
-		}
-
-		nod = no_arr_min;
-
-		test_nod = no_arr_max;
-
-		while (test_nod % nod != 0) { // Находим НОД
-
-			x = test_nod / nod;
-
-			y = nod;
-
-			nod = test_nod - (nod * x);
-
-			test_nod = y;
-
-		}
-
-		no_arr_result = (no_arr_max * no_arr_min) / nod; // Находим НОК
-
-		test_result = no_arr_result;
-
-		while ((test_result / 10) > 0) {
-
-			size_result++;
-
-			test_result = test_result / 10;
-
-		}
-
-		string result = "";
-
-		for (i = size_result + 1; i > 0; i--) {
-
-			result = to_string(no_arr_result % 10) + result;
-
-			no_arr_result = no_arr_result / 10;
-
-		}
-
-		return Natural(result);
-
+		int length = 1;
+		int* result;
+		Natural rez(result, length);
+		rez = MUL_NN_N(number);
+		rez = rez.DIV_NN_N(GCF_NN_N(number));
+		return rez;
 	}
 };
