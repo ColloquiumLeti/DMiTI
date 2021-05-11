@@ -16,31 +16,31 @@ public:
 	int Length() { return length; }
 	int Sign() { return sign; }
 
-	//Конструкторы
-	Integer(int sign, string number) { //Инициализация объекта типа Integer
+	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
+	Integer(int sign, string number) { //РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕР±СЉРµРєС‚Р° С‚РёРїР° Integer
 		int counter = 0;
 		bool true_input = 1;
 		setlocale(LC_ALL, "Russian");
-		for (counter = 0; counter < number.length(); counter++) { //Проверка на корректный ввод
+		for (counter = 0; counter < number.length(); counter++) { //РџСЂРѕРІРµСЂРєР° РЅР° РєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ
 			if (!isdigit(number[counter]) && number[counter] != '.') true_input = false;
 		}
 		if (true_input == true) {
 			for (counter = 0; counter < number.length(); counter++) {
 				if (number[counter] == '.') break;
 			}
-			if (counter != 0) number.erase(counter); //Если число - десятичная дробь, то от числа берется только целая часть
+			if (counter != 0) number.erase(counter); //Р•СЃР»Рё С‡РёСЃР»Рѕ - РґРµСЃСЏС‚РёС‡РЅР°СЏ РґСЂРѕР±СЊ, С‚Рѕ РѕС‚ С‡РёСЃР»Р° Р±РµСЂРµС‚СЃСЏ С‚РѕР»СЊРєРѕ С†РµР»Р°СЏ С‡Р°СЃС‚СЊ
 			for (counter = 0; counter < number.length(); counter++) {
 				if (number[counter] != '0') break;
 			}
-			if (counter == number.length()) { //Заполнение массива цифр для нуля
+			if (counter == number.length()) { //Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° С†РёС„СЂ РґР»СЏ РЅСѓР»СЏ
 				length = 1;
 				digits_of_number = new int[1];
 				digits_of_number[0] = 0;
 				sign = 0;
 			}
 			else {
-				if (counter != 0) number.erase(0, counter); //Если привводе у числа есть незначащие нули, они обрезаются
-				//Заполнение массива цифр для целого числа (нулевой элемент массива - первая цифра числа)
+				if (counter != 0) number.erase(0, counter); //Р•СЃР»Рё РїСЂРёРІРІРѕРґРµ Сѓ С‡РёСЃР»Р° РµСЃС‚СЊ РЅРµР·РЅР°С‡Р°С‰РёРµ РЅСѓР»Рё, РѕРЅРё РѕР±СЂРµР·Р°СЋС‚СЃСЏ
+				//Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° С†РёС„СЂ РґР»СЏ С†РµР»РѕРіРѕ С‡РёСЃР»Р° (РЅСѓР»РµРІРѕР№ СЌР»РµРјРµРЅС‚ РјР°СЃСЃРёРІР° - РїРµСЂРІР°СЏ С†РёС„СЂР° С‡РёСЃР»Р°)
 				length = number.length();
 				digits_of_number = new int[length];
 				for (counter = 0; counter < length; counter++) {
@@ -48,8 +48,8 @@ public:
 				}
 			}
 		}
-		else { //Если введенная строка содержит символы кроме цифр и точки, то числу присваивается 0. Некорректный ввод
-			cout << "Invalid input" << endl; //Вывод сообщения о некорректном вводе
+		else { //Р•СЃР»Рё РІРІРµРґРµРЅРЅР°СЏ СЃС‚СЂРѕРєР° СЃРѕРґРµСЂР¶РёС‚ СЃРёРјРІРѕР»С‹ РєСЂРѕРјРµ С†РёС„СЂ Рё С‚РѕС‡РєРё, С‚Рѕ С‡РёСЃР»Сѓ РїСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ 0. РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ
+			cout << "Invalid input" << endl; //Р’С‹РІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ Рѕ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРј РІРІРѕРґРµ
 			length = 1;
 			digits_of_number = new int[1];
 			digits_of_number[0] = 0;
@@ -57,7 +57,7 @@ public:
 		}
 	}
 
-	//Конструктор Integer для готового массива чисел и длины числа
+	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Integer РґР»СЏ РіРѕС‚РѕРІРѕРіРѕ РјР°СЃСЃРёРІР° С‡РёСЃРµР» Рё РґР»РёРЅС‹ С‡РёСЃР»Р°
 	Integer(int digits[], int size_of_array, int new_sign) {
 		digits_of_number = new int[size_of_array];
 		for (int i = 0; i < size_of_array; i++) digits_of_number[i] = digits[i];
@@ -65,12 +65,12 @@ public:
 		sign = new_sign;;
 	}
 
-	//N-1 абсолютная величина 
+	//N-1 Р°Р±СЃРѕР»СЋС‚РЅР°СЏ РІРµР»РёС‡РёРЅР° 
 	Natural ABS_Z_N() {
 		return Natural(Digits_of_number(), Length());
 	}
 
-	//N-2 определение положительности 
+	//N-2 РѕРїСЂРµРґРµР»РµРЅРёРµ РїРѕР»РѕР¶РёС‚РµР»СЊРЅРѕСЃС‚Рё 
 	int POZ_Z_D() {
 		if (digits_of_number[0] == 0) return 0;
 		else {
@@ -81,7 +81,7 @@ public:
 		}
 	}
 
-	//N-3 умножение на -1
+	//N-3 СѓРјРЅРѕР¶РµРЅРёРµ РЅР° -1
 	Integer MUL_ZM_Z() {
 		int sign;
 		if (Sign() == 0) {
@@ -93,12 +93,12 @@ public:
 		return Integer(Digits_of_number(), Length(), sign);
 	}
 
-	// Z-4 Преобразование натурального в целое
+	// Z-4 РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ РІ С†РµР»РѕРµ
 	Integer TRANS_N_Z(Natural number1) {
 		return Integer(number1.Digits_of_number(), number1.Length(), 0);
 	}
 
-	// Z-5 Преобразование целого неотрицательного в натуральное
+	// Z-5 РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ С†РµР»РѕРіРѕ РЅРµРѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕРіРѕ РІ РЅР°С‚СѓСЂР°Р»СЊРЅРѕРµ
 	Natural TRANS_Z_N() {
 		if (Sign() == 0) {
 			return Natural(Digits_of_number(), Length());
@@ -108,15 +108,15 @@ public:
 		}
 	}
 
-	// Z - 6 - сумма целых
+	// Z - 6 - СЃСѓРјРјР° С†РµР»С‹С…
 	Integer ADD_ZZ_Z(Integer Y) {
-		//формируем результирующую переменнную
+		//С„РѕСЂРјРёСЂСѓРµРј СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰СѓСЋ РїРµСЂРµРјРµРЅРЅРЅСѓСЋ
 		int sign_res = 0;
 		int lenght_res;
-		lenght_res = length; // по умолчанию так, но если нет то нет
+		lenght_res = length; // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ С‚Р°Рє, РЅРѕ РµСЃР»Рё РЅРµС‚ С‚Рѕ РЅРµС‚
 		if (length < Y.length) { lenght_res = Y.length; }
 		int* Arr_res = new int[lenght_res];
-		Natural N_x = ABS_Z_N(); //вспомогательная переменная (модуль) - чтобы не путаться в функциях
+		Natural N_x = ABS_Z_N(); //РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ (РјРѕРґСѓР»СЊ) - С‡С‚РѕР±С‹ РЅРµ РїСѓС‚Р°С‚СЊСЃСЏ РІ С„СѓРЅРєС†РёСЏС…
 		Natural N_y = Y.ABS_Z_N();
 		Natural res_N(Arr_res, lenght_res);
 		if (this->sign == Y.sign) {
@@ -126,7 +126,7 @@ public:
 			Arr_res = res_N.Digits_of_number();
 		}
 		else {
-			// COM_NN_D (N-1) Сравнение натуральных чисел: 2 - если первое больше второго, 0 - если равны, 1 - второе больше первого 
+			// COM_NN_D (N-1) РЎСЂР°РІРЅРµРЅРёРµ РЅР°С‚СѓСЂР°Р»СЊРЅС‹С… С‡РёСЃРµР»: 2 - РµСЃР»Рё РїРµСЂРІРѕРµ Р±РѕР»СЊС€Рµ РІС‚РѕСЂРѕРіРѕ, 0 - РµСЃР»Рё СЂР°РІРЅС‹, 1 - РІС‚РѕСЂРѕРµ Р±РѕР»СЊС€Рµ РїРµСЂРІРѕРіРѕ 
 			N_x.COM_NN_D(N_y);
 			switch (N_x.COM_NN_D(N_y)) {
 			case 1: // Y > X
@@ -147,24 +147,24 @@ public:
 		return Integer(Arr_res, lenght_res, sign_res);
 	}
 
-	// Z-7 - разность целых
+	// Z-7 - СЂР°Р·РЅРѕСЃС‚СЊ С†РµР»С‹С…
 	Integer SUB_ZZ_Z(Integer Y) {
-		//формируем результирующую переменнную
+		//С„РѕСЂРјРёСЂСѓРµРј СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰СѓСЋ РїРµСЂРµРјРµРЅРЅРЅСѓСЋ
 		int sign_res = 0;
 		int lenght_res;
-		lenght_res = length; // по умолчанию так, но если нет - то нет
+		lenght_res = length; // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ С‚Р°Рє, РЅРѕ РµСЃР»Рё РЅРµС‚ - С‚Рѕ РЅРµС‚
 		if (length < Y.length) { lenght_res = Y.length; }
 		int* Arr_res = new int[lenght_res];
-		Natural N_x = ABS_Z_N(); //вспомогательная переменная (модуль) - чтобы не путаться в функциях
+		Natural N_x = ABS_Z_N(); //РІСЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ (РјРѕРґСѓР»СЊ) - С‡С‚РѕР±С‹ РЅРµ РїСѓС‚Р°С‚СЊСЃСЏ РІ С„СѓРЅРєС†РёСЏС…
 		Natural N_y = Y.ABS_Z_N();
 		Natural res_N(Arr_res, lenght_res);
-		if (this->sign != Y.sign) { // что иронично - разница между - и + только в этом условии ))
+		if (this->sign != Y.sign) { // С‡С‚Рѕ РёСЂРѕРЅРёС‡РЅРѕ - СЂР°Р·РЅРёС†Р° РјРµР¶РґСѓ - Рё + С‚РѕР»СЊРєРѕ РІ СЌС‚РѕРј СѓСЃР»РѕРІРёРё ))
 			sign_res = sign;
 			Natural res_N = N_x.ADD_NN_N(N_y);
 			lenght_res = res_N.Length();
 			Arr_res = res_N.Digits_of_number();
 		}
-		else { // COM_NN_D (N-1) Сравнение натуральных чисел: 2 - если первое больше второго, 0 - если равны, 1 - второе больше первого 
+		else { // COM_NN_D (N-1) РЎСЂР°РІРЅРµРЅРёРµ РЅР°С‚СѓСЂР°Р»СЊРЅС‹С… С‡РёСЃРµР»: 2 - РµСЃР»Рё РїРµСЂРІРѕРµ Р±РѕР»СЊС€Рµ РІС‚РѕСЂРѕРіРѕ, 0 - РµСЃР»Рё СЂР°РІРЅС‹, 1 - РІС‚РѕСЂРѕРµ Р±РѕР»СЊС€Рµ РїРµСЂРІРѕРіРѕ 
 			N_x.COM_NN_D(N_y);
 			switch (N_x.COM_NN_D(N_y)) {
 			case 1: // Y > X
@@ -185,7 +185,7 @@ public:
 		return Integer(Arr_res, lenght_res, sign_res);
 	}
 
-	// Z-8 Умножение целых чисел
+	// Z-8 РЈРјРЅРѕР¶РµРЅРёРµ С†РµР»С‹С… С‡РёСЃРµР»
 	Integer MUL_ZZ_Z(Integer number) {
 		Natural num2 = number.ABS_Z_N();
 		int s = Sign();
@@ -199,7 +199,7 @@ public:
 		return Integer(arr, length, s);
 	}
 
-	// Z-9 Частное от деления целого на целое (делитель отличен от нуля)
+	// Z-9 Р§Р°СЃС‚РЅРѕРµ РѕС‚ РґРµР»РµРЅРёСЏ С†РµР»РѕРіРѕ РЅР° С†РµР»РѕРµ (РґРµР»РёС‚РµР»СЊ РѕС‚Р»РёС‡РµРЅ РѕС‚ РЅСѓР»СЏ)
 	Integer DIV_ZZ_Z(Integer number) {
 		Natural num2 = number.ABS_Z_N();
 		int s = Sign();
@@ -213,7 +213,7 @@ public:
 		return Integer(arr, length, s);
 	}
 
-	// Z-10 Остаток от деления целого на целое(делитель отличен от нуля)
+	// Z-10 РћСЃС‚Р°С‚РѕРє РѕС‚ РґРµР»РµРЅРёСЏ С†РµР»РѕРіРѕ РЅР° С†РµР»РѕРµ(РґРµР»РёС‚РµР»СЊ РѕС‚Р»РёС‡РµРЅ РѕС‚ РЅСѓР»СЏ)
 	Integer MOD_ZZ_Z(Integer number) {
 		Integer N_1(Digits_of_number(), Length(), Sign());
 		Integer N_2 = number;
