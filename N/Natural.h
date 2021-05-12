@@ -1,3 +1,4 @@
+#pragna
 #include <iostream>
 #include <string>
 #include <locale.h>
