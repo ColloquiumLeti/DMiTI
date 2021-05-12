@@ -277,7 +277,7 @@ public:
 		Natural rez(result, length);
 		switch (N_1.COM_NN_D(N_2)) {
 		case 0: {
-			length = 0;
+			rez.Digits_of_number()[0] = 1;
 			break;
 		}
 		case 1: {
