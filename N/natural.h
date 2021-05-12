@@ -281,14 +281,14 @@ public:
 			break;
 		}
 		case 1: {
-			while ((N_2.Length() - N_1.Length() > 0) || (N_2.Digits_of_number()[0] != 0)) {
+			while (N_1.COM_NN_D(N_2) == 1) {
 				rez = rez.ADD_NN_N(N_2.DIV_NN_Dk(N_1));
 				N_2 = N_2.SUB_NN_N(N_1.MUL_NN_N(N_2.DIV_NN_Dk(N_1)));
 			}
 			break;
 		}
 		case 2: {
-			while ((N_1.Length() - N_2.Length() > 0) || (N_1.Digits_of_number()[0] != 0)) {
+			while (N_1.COM_NN_D(N_2) == 2) {
 				rez = rez.ADD_NN_N(N_1.DIV_NN_Dk(N_2));
 				N_1 = N_1.SUB_NN_N(N_2.MUL_NN_N(N_1.DIV_NN_Dk(N_2)));
 			}
