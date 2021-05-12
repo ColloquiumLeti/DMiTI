@@ -168,19 +168,23 @@ public:
 		else { // COM_NN_D (N-1) Сравнение натуральных чисел: 2 - если первое больше второго, 0 - если равны, 1 - второе больше первого 
 			N_x.COM_NN_D(N_y);
 			switch (N_x.COM_NN_D(N_y)) {
-			case 1: // Y > X
+			case 1: {// Y > X
+				if (Y.sign == 0) { Y.sign = 1; }
+				else { Y.sign = 0; }
 				sign_res = Y.sign;
 				res_N = N_y.SUB_NN_N(N_x);
 				lenght_res = res_N.Length();
 				Arr_res = res_N.Digits_of_number();
 				break;
+			}
 			case 0: // X = Y
-			case 2:  // X > Y
+			case 2: { // X > Y
 				sign_res = sign;
 				res_N = N_x.SUB_NN_N(N_y);
 				lenght_res = res_N.Length();
 				Arr_res = res_N.Digits_of_number();
 				break;
+			}
 			}
 		}
 		return Integer(Arr_res, lenght_res, sign_res);
