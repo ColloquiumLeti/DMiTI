@@ -169,6 +169,8 @@ public:
 			N_x.COM_NN_D(N_y);
 			switch (N_x.COM_NN_D(N_y)) {
 			case 1: // Y > X
+				if (Y.sign == 0) { Y.sign = 1; }
+				else { Y.sign = 0; }
 				sign_res = Y.sign;
 				res_N = N_y.SUB_NN_N(N_x);
 				lenght_res = res_N.Length();
