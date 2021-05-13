@@ -75,7 +75,7 @@ public:
 		return Nat;
 	}
 
-	//Сложение
+	//Сложение (Q-5)
 
 	fraction ADD_QQ_Q(fraction drob2)
 	{
@@ -103,7 +103,7 @@ public:
 		return drob3;
 	}
 
-	//Вычитание
+	//Вычитание (Q-6)
 
 	fraction SUB_QQ_Q(fraction drob2)
 	{
@@ -131,7 +131,7 @@ public:
 		return drob3;
 	}
 
-	//Работает, но если переполняется long int, используемый в MOD_NN_N, то ничерта не работает
+	//Работает, но если переполняется long int, используемый в MOD_NN_N, то ничерта не работает (Q-2)
 
 	bool INT_Q_B()
 	{
@@ -143,7 +143,7 @@ public:
 		else return 0;
 	}
 
-	//Сокращение дробей
+	//Сокращение дробей (Q-1)
 
 	fraction RED_Q_Q() //  ABS_Z_N(модуль)  GCF_NN_N(НОД натуральных чисел) DIV_ZZ_Z(Частное от деления целого на целое (делитель отличен от нуля)
 	{
@@ -164,7 +164,7 @@ public:
 		return sokr;
 	}
 
-	// метод, делающий из целого числа дробь, допустим число 6 можно представить как 36/6
+	// метод, делающий из целого числа дробь, допустим число 6 можно представить как 36/6 (Q-3)
 
 	fraction TRANS_Z_Q(Integer int_input)
 	{
@@ -182,7 +182,7 @@ public:
 
 	}
 
-	//метод, преобразующий дробь в целое, если знаменатель равен единице
+	//метод, преобразующий дробь в целое, если знаменатель равен единице (Q-4)
 
 	Integer TRANS_Q_Z()
 	{
@@ -191,6 +191,42 @@ public:
 			return chisl;
 		else
 			cout << "Знаменатель не равен единице!";
+	}
+	
+	// метод, умножающий дроби (Q-7)
+
+	fraction MUL_QQ_Q(fraction drob42) 
+	{
+		fraction drob4;
+		Integer temp1 = FracToInt(zn_digit, zn_n, 0);
+		Integer temp2 = FracToInt(drob42.zn_digit, drob42.zn_n, 0); //Перевод необходимых частей (знаменатели) в целые числа для умножения
+		drob4.zn_digit = IntToFrac(temp1.MUL_ZZ_Z(temp2)); // Умножение (получается знаменатель)
+		temp1 = FracToInt(ch_digit, ch_n, sign);
+		temp2 = FracToInt(drob42.ch_digit, drob42.ch_n, drob42.sign); //Перевод необходимых частей (числители) в целые числа для умножения
+		drob4.ch_digit = IntToFrac(temp1.MUL_ZZ_Z(temp2)); // Умножение (получается числитель)
+		drob4.ch_n = drob4.ch_digit.size();
+		drob4.zn_n = drob4.zn_digit.size();
+		drob4.sign = temp1.MUL_ZZ_Z(temp2).Sign();
+		drob4 = drob4.RED_Q_Q(); // Сокращение
+		return drob4;
+	}
+
+	//метод, делящий дроби (Q-8)
+
+	fraction DIV_QQ_Q(fraction drob42) 
+	{
+		fraction drob4;
+		Integer temp1 = FracToInt(zn_digit, zn_n, 0);
+		Integer temp2 = FracToInt(drob42.ch_digit, drob42.ch_n, 0); //Перевод необходимых частей (знаменатель 1 и числитель 2) в целые числа для умножения
+		drob4.zn_digit = IntToFrac(temp1.MUL_ZZ_Z(temp2)); // Умножение (получается знаменатель)
+		temp1 = FracToInt(ch_digit, ch_n, sign);
+		temp2 = FracToInt(drob42.zn_digit, drob42.zn_n, drob42.sign); //Перевод необходимых частей (числитель 1 и знаменатель 2) в целые числа для умножения
+		drob4.ch_digit = IntToFrac(temp1.MUL_ZZ_Z(temp2)); // Умножение (получается числитель)
+		drob4.ch_n = drob4.ch_digit.size();
+		drob4.zn_n = drob4.zn_digit.size();
+		drob4.sign = temp1.MUL_ZZ_Z(temp2).Sign();
+		drob4 = drob4.RED_Q_Q(); // Сокращение
+		return drob4;
 	}
 
 	int get_ch_len()
@@ -222,6 +258,6 @@ private:
 };
 //Q-1 Женя Вишнякова / Артем Сизов
 //Q-2,Q-5,Q-6 Трухман Дмитрий
-//Q-3,Q-4 Мятов Никита
-//Q-7, Q-8 (Пока в процессе)
+//Q-3,Q-4 Бачин Никита
+//Q-7, Q-8 Юрий Мясников
 
