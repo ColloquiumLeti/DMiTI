@@ -97,7 +97,7 @@ public:
 		in2 = FracToInt(temp2, temp2.size(), drob2.sign);
 		in3 = FracToInt(temp1, temp1.size(), sign);
 		in4 = in3.ADD_ZZ_Z(in2);
-		drob3.ch_digit = IntToFrac(in3.ADD_ZZ_Z(in2)); // Вычитаем из числителя первой дроби числитель второй
+		drob3.ch_digit = IntToFrac(in3.ADD_ZZ_Z(in2)); // Cкладываем числитель первой дроби с числителем второй
 		drob3.ch_n = drob3.ch_digit.size();
 		drob3.sign = in4.Sign();
 		return drob3;
