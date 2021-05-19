@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 #include <locale.h>
-#include "natural.h"
+#include "Natural.h"
+#include "Fraction.h"
+#include "Integer.h"
 #include <vector>
 #include <conio.h>
 using namespace std;
@@ -10,8 +12,6 @@ using namespace std;
 /*
 Важное уточнение - в программе реализованы не только некоторые функуии, но и их проверки.
 Так же реализованы дополнительные ф-ции что используются в качестве примера рабыот тех или иных механик классов.
-
-
 Хорошего программирования (^_^)
 */
 
