@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <vector>
 #include <conio.h>
 #include <string>
@@ -249,6 +249,29 @@ public:
 	{
 		return sign;
 	}
+	//Функции нужные для облегчения написания полиномов
+	void change_ch_len(int new_ch_n)
+	{
+		ch_n = new_ch_n;
+	}
+	void change_zn_len(int new_zn_n)
+	{
+		zn_n = new_zn_n;
+	}
+	void change_sign(bool new_sign)
+	{
+		sign = new_sign;
+	}
+	void change_zn(vector <int> new_zn)
+	{
+		zn_digit = new_zn;
+	}
+	void change_ch(vector <int> new_ch)
+	{
+		ch_digit = new_ch;
+	}
+
+
 private:
 	bool sign; //Знак
 	int ch_n; //Кол-во цифр числителя
