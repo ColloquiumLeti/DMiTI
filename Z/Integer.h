@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <locale.h>
-#include "natural.h"
+#include "Natural.h"
 
 using namespace std;
 
@@ -56,6 +56,27 @@ public:
 			digits_of_number[0] = 0;
 			sign = 0;
 		}
+	}
+	//Вспомогательный конструктор для облегчения написания полиномов
+	Integer(int numbers)
+	{
+		if (numbers < 0) { sign = 1; }
+		else { sign = 0; }
+		int k = 0;
+		int n1 = numbers;
+		while (n1 != 0)
+		{
+			n1 = n1 / 10;
+			k++;
+		}
+		length = k;
+		int* arr = new int[k];
+		for (k; k > 0; k--)
+		{
+			arr[k - 1] = numbers % 10;
+			numbers = numbers / 10;
+		}
+		digits_of_number = arr;
 	}
 
 	//Конструктор Integer для готового массива чисел и длины числа
@@ -240,3 +261,8 @@ public:
 		}
 	}
 };
+
+// Z-1, Z-2, Z-3 Евдокимова Анна
+// Z-4, Z-5, Z-10 Пшеничный Владимир
+// Z-6, Z-7 Анастасия Барбие
+// Z-8, Z-9 Кайнелайнен Дмитрий
