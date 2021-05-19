@@ -1,4 +1,4 @@
-#pragna
+#pragma
 #include <iostream>
 #include <string>
 #include <locale.h>
@@ -15,7 +15,7 @@ public:
 
 
 	//Конструкторы
-	Natural(string number) { //Инициализация объекта типа Natural(только гетеро, не гомо)
+	Natural(string number) { //Инициализация объекта типа Natural
 		int counter = 0;
 		bool true_input = 1;
 		setlocale(LC_ALL, "Russian");
@@ -357,3 +357,7 @@ public:
 		return rez;
 	}
 };
+// N-1, N-3, N-5, N-7 Яна Любимова 
+// N-2, N-4, N-6, N-8, N-9 Ксения Скиба
+// N-10, N-11, N-12 Артем Курилов
+// N-13, N-14 Владимир Пшеничный
