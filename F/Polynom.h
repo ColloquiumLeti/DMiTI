@@ -40,7 +40,7 @@ public:
             // cout потом удалить 
             cout << "введите количество числителя элемента " << i << " : "; int ch_n; cin >> ch_n;
             vector<int> ch_digit(ch_n);
-            cout << "значение числиииииителя элемента " << i << " : ";
+            cout << "значение числителя элемента " << i << " : ";
             for (int j = 0; j < ch_n; j++)
             {
                 std::cin >> ch_digit[j];
@@ -98,7 +98,7 @@ public:
         }
         for (i; i < cobolt + 1; i++)
         {
-            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены (костыли ебаные)
+            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены 
             k->C[j].change_zn(give_me_help);
             vector <int> and_you_too = k->C[j].get_ch(); std::reverse(and_you_too.begin(), and_you_too.end());
             k->C[j].change_ch(and_you_too);
@@ -107,7 +107,7 @@ public:
             vector <int> norzn = this->C[i].get_zn(); std::reverse(norzn.begin(), norzn.end());
             X->C[for_X].change_zn(norzn);
 
-            X->C[for_X] = X->C[for_X].ADD_QQ_Q(k->C[j]);// <---- вот она, вот эта сука
+            X->C[for_X] = X->C[for_X].ADD_QQ_Q(k->C[j]);
 
             vector <int> new_chisl = X->C[for_X].get_ch(); std::reverse(new_chisl.begin(), new_chisl.end());
             X->C[for_X].change_ch(new_chisl);
@@ -145,7 +145,7 @@ public:
         }
         for (i; i < cobolt + 1; i++)
         {
-            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены (костыли ебаные)
+            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены 
             k->C[j].change_zn(give_me_help);
             vector <int> and_you_too = k->C[j].get_ch(); std::reverse(and_you_too.begin(), and_you_too.end());
             k->C[j].change_ch(and_you_too);
@@ -154,7 +154,7 @@ public:
             vector <int> norzn = this->C[i].get_zn(); std::reverse(norzn.begin(), norzn.end());
             X->C[for_X].change_zn(norzn);
 
-            X->C[for_X] = X->C[for_X].SUB_QQ_Q(k->C[j]);// <---- вот она, вот эта сука
+            X->C[for_X] = X->C[for_X].SUB_QQ_Q(k->C[j]);
 
             vector <int> new_chisl = X->C[for_X].get_ch(); std::reverse(new_chisl.begin(), new_chisl.end());
             X->C[for_X].change_ch(new_chisl);
@@ -166,7 +166,7 @@ public:
         return X;
     }
 
-    // 3 умножение на коэф (умножение(умножение)) - умножение[умножение]: умножение................................умножение
+    // 3 умножение на коэффициент
     Polynom* MUL_PQ_P(fraction k)
     {
         vector <int> give_me_help = k.get_zn(); std::reverse(give_me_help.begin(), give_me_help.end());
@@ -188,7 +188,7 @@ public:
         }
         return X;
     }
-    // 4 - умножение на x^k (увеличивает степень и добовляет "0" элементы) - ок
+    // 4 - умножение на x^k (увеличивает степень и добовляет "0" элементы) 
     Polynom* MUL_Pxk_P()
     {
         int kk;
@@ -210,17 +210,17 @@ public:
         return A;
     }
 
-    // 5 Старший кооф - ок
+    // 5 Старший коэффициент
     fraction LED_P_Q()
     {
         return get_C(0);
     }
-    // 6 Степень - ок
+    // 6 Степень 
     int DEG_P_N()
     {
         return (m);
     }
-    // 12 Производная - ок
+    // 12 Производная 
     Polynom* DER_P_P()
     {
         Integer new_integer(m);
