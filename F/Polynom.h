@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 #include <iostream>
 #include <string>
 #include <locale.h>
@@ -30,7 +30,7 @@ public:
     // конструктор с вводом значений внутри ф-ции
     Polynom()
     {
-        cout << "введите степень ";
+        cout << "enter the degree ";
         int new_m; cin >> new_m; // передаём степень
         m = new_m;
         new_m++;// new_m становится количеством 
@@ -38,17 +38,17 @@ public:
         for (int i = 0; i < new_m; i++)
         {
             // cout потом удалить 
-            cout << "введите количество числителя элемента " << i << " : "; int ch_n; cin >> ch_n;
+            cout << "enter the number of the element's numerator " << i << " : "; int ch_n; cin >> ch_n;
             vector<int> ch_digit(ch_n);
-            cout << "значение числителя элемента " << i << " : ";
+            cout << "the value of the element's numerator " << i << " : ";
             for (int j = 0; j < ch_n; j++)
             {
                 std::cin >> ch_digit[j];
             }
-            cout << "введите знак числителя элемента " << i << " : "; bool sign; cin >> sign;
-            cout << "введите количество знаменателя элемента " << i << " : "; int zn_n; cin >> zn_n;
+            cout << "enter the element's numerator sign " << i << " : "; bool sign; cin >> sign;
+            cout << "enter the number of the element's denominator " << i << " : "; int zn_n; cin >> zn_n;
             vector<int> zn_digit(zn_n);
-            cout << "значение знаменателя элемента " << i << " : ";
+            cout << "the value of the element denominator " << i << " : ";
             for (int j = 0; j < zn_n; j++)
             {
                 std::cin >> zn_digit[j];
@@ -98,7 +98,7 @@ public:
         }
         for (i; i < cobolt + 1; i++)
         {
-            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены 
+            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены (костыли ебаные)
             k->C[j].change_zn(give_me_help);
             vector <int> and_you_too = k->C[j].get_ch(); std::reverse(and_you_too.begin(), and_you_too.end());
             k->C[j].change_ch(and_you_too);
@@ -107,7 +107,7 @@ public:
             vector <int> norzn = this->C[i].get_zn(); std::reverse(norzn.begin(), norzn.end());
             X->C[for_X].change_zn(norzn);
 
-            X->C[for_X] = X->C[for_X].ADD_QQ_Q(k->C[j]);
+            X->C[for_X] = X->C[for_X].ADD_QQ_Q(k->C[j]);// <---- вот она, вот эта сука
 
             vector <int> new_chisl = X->C[for_X].get_ch(); std::reverse(new_chisl.begin(), new_chisl.end());
             X->C[for_X].change_ch(new_chisl);
@@ -145,7 +145,7 @@ public:
         }
         for (i; i < cobolt + 1; i++)
         {
-            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены 
+            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены (костыли ебаные)
             k->C[j].change_zn(give_me_help);
             vector <int> and_you_too = k->C[j].get_ch(); std::reverse(and_you_too.begin(), and_you_too.end());
             k->C[j].change_ch(and_you_too);
@@ -154,7 +154,7 @@ public:
             vector <int> norzn = this->C[i].get_zn(); std::reverse(norzn.begin(), norzn.end());
             X->C[for_X].change_zn(norzn);
 
-            X->C[for_X] = X->C[for_X].SUB_QQ_Q(k->C[j]);
+            X->C[for_X] = X->C[for_X].SUB_QQ_Q(k->C[j]);// <---- вот она, вот эта сука
 
             vector <int> new_chisl = X->C[for_X].get_ch(); std::reverse(new_chisl.begin(), new_chisl.end());
             X->C[for_X].change_ch(new_chisl);
@@ -166,7 +166,7 @@ public:
         return X;
     }
 
-    // 3 умножение на коэффициент
+    // 3 умножение на коэф (умножение(умножение)) - умножение[умножение]: умножение................................умножение
     Polynom* MUL_PQ_P(fraction k)
     {
         vector <int> give_me_help = k.get_zn(); std::reverse(give_me_help.begin(), give_me_help.end());
@@ -188,7 +188,7 @@ public:
         }
         return X;
     }
-    // 4 - умножение на x^k (увеличивает степень и добовляет "0" элементы) 
+    // 4 - умножение на x^k (увеличивает степень и добовляет "0" элементы) - ок
     Polynom* MUL_Pxk_P()
     {
         int kk;
@@ -210,17 +210,17 @@ public:
         return A;
     }
 
-    // 5 Старший коэффициент
+    // 5 Старший кооф - ок
     fraction LED_P_Q()
     {
         return get_C(0);
     }
-    // 6 Степень 
+    // 6 Степень - ок
     int DEG_P_N()
     {
         return (m);
     }
-    // 12 Производная 
+    // 12 Производная - ок
     Polynom* DER_P_P()
     {
         Integer new_integer(m);
