@@ -190,7 +190,7 @@ public:
 		if (zn_n == 1 && zn_digit[0] == 1)
 			return chisl;
 		else
-			cout << "Знаменатель не равен единице!";
+			cout << "The denominator is not equal to one!";
 	}
 	
 	// метод, умножающий дроби (Q-7)
@@ -283,4 +283,3 @@ private:
 //Q-2,Q-5,Q-6 Трухман Дмитрий
 //Q-3,Q-4 Бачин Никита
 //Q-7, Q-8 Юрий Мясников
-
