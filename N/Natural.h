@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 #include <iostream>
 #include <string>
 #include <locale.h>
@@ -18,7 +18,6 @@ public:
 	Natural(string number) { //Инициализация объекта типа Natural
 		int counter = 0;
 		bool true_input = 1;
-		setlocale(LC_ALL, "Russian");
 		for (counter = 0; counter < number.length(); counter++) { //Проверка на корректный ввод
 			if (!isdigit(number[counter]) && number[counter] != '.') true_input = false;
 		}
@@ -170,7 +169,7 @@ public:
 				return Natural(result);
 			}
 			else {
-				cout << "Нарушение правил натурального вычитания" << endl;
+				cout << "Violation of the rules of natural subtraction" << endl;
 				return Natural("0");
 			}
 		}
