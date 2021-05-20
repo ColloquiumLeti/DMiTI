@@ -13,7 +13,6 @@ using namespace std;
 
 
 int main(){
-    setlocale(LC_ALL, "Russian");
     system("cls");
     int symbol=1;
     while (symbol != 5) {
@@ -24,23 +23,23 @@ int main(){
                 int symbol_N=1;
                 while (symbol_N != 15) {
                     system("cls");
-                    cout << "Пожалуйста введите натуральное число" << endl;
+                    cout << "Please enter a natural number" << endl;
                     string str_For_Natural_1;
                     getline(cin, str_For_Natural_1);
                     Natural N1(str_For_Natural_1);
                     symbol_N = print_Natural_menu();
                     switch (symbol_N) {
                         case 1:{
-                            cout << "Пожалуйста введите еще одно натуральное число" << endl;
+                            cout << "Please enter another natural number" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
-                            cout << "Результат сравнения: 2 - если первое больше второго, 0 - если равны, 1- иначе \n" << N1.COM_NN_D(N2) << endl;
+                            cout << "Comparison result: 2 - if the first is greater than the second, 0 - if equal, 1-otherwise \n" << N1.COM_NN_D(N2) << endl;
                             _getch();
                             break;
                         }
                         case 2:{
-                            cout << "Проверка на ноль: если число не равно нулю, то 'да'(1) иначе 'нет'(0)" << N1.NZER_N_B() << endl;
+                            cout << "Zero check: if the number is not zero ,then 'yes'(1) otherwise 'no'(0)" << N1.NZER_N_B() << endl;
                             _getch();
                             break;
                         }
@@ -53,12 +52,12 @@ int main(){
                             break;
                         }
                         case 4:{
-                            cout << "Пожалуйста введите еще одно натуральное число" << endl;
+                            cout << "Please enter another natural number" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N2.ADD_NN_N(N1);
-                            cout << "Сумма равна" << " ";
+                            cout << "The sum is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -66,12 +65,12 @@ int main(){
                             break;
                         }
                         case 5:{
-                            cout << "Пожалуйста введите еще одно натуральное число меньше первого" << endl;
+                            cout << "Please enter another natural number less than the first one" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N1.SUB_NN_N(N2);
-                            cout << "Разность равна" << " ";
+                            cout << "The Subtracting is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -79,11 +78,11 @@ int main(){
                             break;
                         }
                         case 6:{
-                            cout << "Пожалуйста введите число на которое умножают натуральное" << endl;
+                            cout << "Please enter the number by which the natural number is multiplied" << endl;
                             int number;
                             cin >> number;
                             N1 = N1.MUL_ND_N(number);
-                            cout << "Умножение на число равно" << " ";
+                            cout << "Multiplication by a number is equal to" << " ";
                             for(int schetchik = 0; schetchik < N1.Length(); schetchik++){
                             cout << N1.Digits_of_number()[schetchik];
                             }
@@ -91,11 +90,11 @@ int main(){
                             break;
                         }
                         case 7:{
-                            cout << "Пожалуйста введите степень k" << endl;
+                            cout << "Please enter the degree of k" << endl;
                             int number;
                             cin >> number;
                             N1 = N1.MUL_Nk_N(number);
-                            cout << "Умножение на 10^k равно" << " ";
+                            cout << "Multiplication by 10^k is equal to" << " ";
                             for(int schetchik = 0; schetchik < N1.Length(); schetchik++){
                             cout << N1.Digits_of_number()[schetchik];
                             }
@@ -103,12 +102,12 @@ int main(){
                             break;
                         }
                         case 8:{
-                            cout << "Пожалуйста введите еще одно натуральное число" << endl;
+                            cout << "Please enter another natural number" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N2.MUL_NN_N(N1);
-                            cout << "Произведение равно" << " ";
+                            cout << "The Multiplication is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -116,14 +115,14 @@ int main(){
                             break;
                         }
                         case 9:{
-                            cout << "Пожалуйста введите еще одно натуральное число и число на которое его домножают" << endl;
+                            cout << "Please enter another natural number and the number by which it is multiplied" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             int number;
                             cin >> number;
                             Natural N3 = N2.SUB_NDN_N(N1, number);
-                            cout << "Разность равна" << " ";
+                            cout << "The Subtracting is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -131,12 +130,12 @@ int main(){
                             break;
                         }
                         case 10:{
-                            cout << "Пожалуйста введите еще одно натуральное число больше первого" << endl;
+                            cout << "Please enter another natural number greater than the first one" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N2.DIV_NN_Dk(N1);
-                            cout << "Результат равен" << " ";
+                            cout << "The result is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -144,12 +143,12 @@ int main(){
                             break;
                         }
                         case 11:{
-                            cout << "Пожалуйста введите еще одно натуральное число больше или равное первому" << endl;
+                            cout << "Please enter another natural number greater than the first one" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N2.DIV_NN_N(N1);
-                            cout << "Результат равен" << " ";
+                            cout << "The result is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -157,12 +156,12 @@ int main(){
                             break;
                         }
                         case 12:{
-                            cout << "Пожалуйста введите еще одно натуральное число больше или равное первому" << endl;
+                            cout << "Please enter another natural number greater than the first one" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N2.MOD_NN_N(N1);
-                            cout << "Остаток равен" << " ";
+                            cout << "The remainder is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -170,12 +169,12 @@ int main(){
                             break;
                         }
                         case 13:{
-                            cout << "Пожалуйста введите еще одно натуральное число" << endl;
+                            cout << "Please enter another natural number" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N2.GCF_NN_N(N1);
-                            cout << "НОД равен" << " ";
+                            cout << "The greatest common Divisor is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -183,12 +182,12 @@ int main(){
                             break;
                         }
                         case 14:{
-                            cout << "Пожалуйста введите еще одно натуральное число" << endl;
+                            cout << "Please enter another natural number" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
                             Natural N3 = N2.LCM_NN_N(N1);
-                            cout << "НОК равен" << " ";
+                            cout << "The smallest common quotient is equal to" << " ";
                             for(int schetchik = 0; schetchik < N3.Length(); schetchik++){
                             cout << N3.Digits_of_number()[schetchik];
                             }
@@ -203,7 +202,7 @@ int main(){
                 int symbol_Z=1;
                 while (symbol_Z != 11) {
                     system("cls");
-                    cout << "Пожалуйста введите целое число (сначала знак потом число)" << endl;
+                    cout << "Please enter an integer (first a sign, then a number)" << endl;
                     int sing1;
                     cin >> sing1;
                     string str_For_Integer_1;
@@ -213,7 +212,7 @@ int main(){
                     switch (symbol_Z) {
                         case 1:{
                             Natural N1 = I1.ABS_Z_N();
-                            cout << "Абсолютное значение равно ";
+                            cout << "The absolute value is equal to ";
                             for(int schetchik = 0; schetchik < N1.Length(); schetchik++){
                             cout << N1.Digits_of_number()[schetchik];
                             }
@@ -221,7 +220,7 @@ int main(){
                             break;
                         }
                         case 2:{
-                            cout << "(2 - положительное, 0 — равное нулю, 1 - отрицательное)   " << I1.POZ_Z_D() << endl;
+                            cout << "(2-positive, 0-zero, 1-negative)   " << I1.POZ_Z_D() << endl;
                             _getch();
                             break;
                         }
@@ -235,7 +234,7 @@ int main(){
                             break;
                         }
                         case 4:{
-                            cout << "Пожалуйста введите одно натуральное число" << endl;
+                            cout << "Please enter one natural number" << endl;
                             string str_For_Natural_2;
                             getline(cin, str_For_Natural_2);
                             Natural N2(str_For_Natural_2);
@@ -256,14 +255,14 @@ int main(){
                             break;
                         }
                         case 6:{
-                            cout << "Пожалуйста введите одно целое число" << endl;
+                            cout << "Please enter a single integer" << endl;
                             int sing2;
                             cin >> sing2;
                             string str_For_Integer_2;
                             getline(cin, str_For_Integer_2);
                             Integer I2(sing2, str_For_Integer_2);
                             Integer I3 = I1.ADD_ZZ_Z(I2);
-                            cout << "Сумма равна" <<" "; 
+                            cout << "The sum is equal to" <<" "; 
                             cout << I3.Sign() << " ";
                             for(int schetchik = 0; schetchik < I3.Length(); schetchik++){
                             cout << I3.Digits_of_number()[schetchik];
@@ -272,14 +271,14 @@ int main(){
                             break;
                         }
                         case 7:{
-                            cout << "Пожалуйста введите одно целое число" << endl;
+                            cout << "Please enter a single integer" << endl;
                             int sing2;
                             cin >> sing2;
                             string str_For_Integer_2;
                             getline(cin, str_For_Integer_2);
                             Integer I2(sing2, str_For_Integer_2);
                             Integer I3 = I1.SUB_ZZ_Z(I2);
-                            cout << "Разность равна" <<" "; 
+                            cout << "the subtraction is equal to" <<" "; 
                             cout << I3.Sign() << " ";
                             for(int schetchik = 0; schetchik < I3.Length(); schetchik++){
                             cout << I3.Digits_of_number()[schetchik];
@@ -288,14 +287,14 @@ int main(){
                             break;
                         }
                         case 8:{
-                            cout << "Пожалуйста введите одно целое число" << endl;
+                            cout << "Please enter a single integer" << endl;
                             int sing2;
                             cin >> sing2;
                             string str_For_Integer_2;
                             getline(cin, str_For_Integer_2);
                             Integer I2(sing2, str_For_Integer_2);
                             Integer I3 = I1.MUL_ZZ_Z(I2);
-                            cout << "Произведение равно" <<" "; 
+                            cout << "multiplication is equal" <<" "; 
                             cout << I3.Sign() << " ";
                             for(int schetchik = 0; schetchik < I3.Length(); schetchik++){
                             cout << I3.Digits_of_number()[schetchik];
@@ -304,14 +303,14 @@ int main(){
                             break;
                         }
                         case 9:{
-                            cout << "Пожалуйста введите одно целое число" << endl;
+                            cout << "Please enter a single integer" << endl;
                             int sing2;
                             cin >> sing2;
                             string str_For_Integer_2;
                             getline(cin, str_For_Integer_2);
                             Integer I2(sing2, str_For_Integer_2);
                             Integer I3 = I1.DIV_ZZ_Z(I2);
-                            cout << "Частное равно" <<" "; 
+                            cout << "The quotient is equal to" <<" "; 
                             cout << I3.Sign() << " ";
                             for(int schetchik = 0; schetchik < I3.Length(); schetchik++){
                             cout << I3.Digits_of_number()[schetchik];
@@ -320,14 +319,14 @@ int main(){
                             break;
                         }
                         case 10:{
-                            cout << "Пожалуйста введите одно целое число" << endl;
+                            cout << "Please enter a single integer" << endl;
                             int sing2;
                             cin >> sing2;
                             string str_For_Integer_2;
                             getline(cin, str_For_Integer_2);
                             Integer I2(sing2, str_For_Integer_2);
                             Integer I3 = I1.MOD_ZZ_Z(I2);
-                            cout << "Остаток равен" <<" "; 
+                            cout << "The remainder is equal to" <<" "; 
                             cout << I3.Sign() << " ";
                             for(int schetchik = 0; schetchik < I3.Length(); schetchik++){
                             cout << I3.Digits_of_number()[schetchik];
@@ -343,19 +342,19 @@ int main(){
                 int symbol_Q=1;
                 while (symbol_Q != 9) {
                     system("cls");
-                    cout << "Введите Рациональное число" << endl;
-                    cout << "сейчас введите числ и знам";
-                    cout << "введите количество числителя элемента " << " : "; int ch_n; cin >> ch_n;
+                    cout << "Enter a Rational number" << endl;
+                    cout << "now enter the numerator and denominator";
+                    cout << "enter the number of the element's numerator " << " : "; int ch_n; cin >> ch_n;
                     vector<int> ch_digit(ch_n);
-                    cout << "значение числителя элемента " << " : ";
+                    cout << "the value of the element's numerator " << " : ";
                     for (int j = 0; j < ch_n; j++)
                     {
                         std::cin >> ch_digit[j];
                     }
-                    cout << "введите знак числителя элемента " << " : "; bool sign; cin >> sign;
-                    cout << "введите количество знаменателя элемента " << " : "; int zn_n; cin >> zn_n;
+                    cout << "enter the element's numerator sign " << " : "; bool sign; cin >> sign;
+                    cout << "enter the number of the element's denominator " << " : "; int zn_n; cin >> zn_n;
                     vector<int> zn_digit(zn_n);
-                    cout << "значение знаменателя элемента "  << " : ";
+                    cout << "the value of the element denominator "  << " : ";
                     for (int j = 0; j < zn_n; j++)
                     {
                         std::cin >> zn_digit[j];
@@ -387,12 +386,12 @@ int main(){
                             break;
                         }
                         case 2:{
-                            cout << "Если 1-число целое, если 0-то нет" << F1.INT_Q_B() << endl;
+                            cout << "If 1 is an integer, if 0 is not" << F1.INT_Q_B() << endl;
                             _getch();
                             break;
                         }
                         case 3:{
-                            cout << "Пожалуйста введите одно целое число" << endl;
+                            cout << "Please enter a single integer" << endl;
                             int sing2;
                             cin >> sing2;
                             string str_For_Integer_2;
@@ -430,19 +429,19 @@ int main(){
                             break;
                         }
                         case 5:{
-                            cout << "Введите еще одно Рациональное число" << endl;
-                            cout << "сейчас введите числ и знам";
-                            cout << "введите количество числителя элемента " << " : "; int ch_n; cin >> ch_n;
+                            cout << "Enter a Rational number" << endl;
+                            cout << "now enter the numerator and denominator";
+                            cout << "enter the number of the element's numerator " << " : "; int ch_n; cin >> ch_n;
                             vector<int> ch_digit(ch_n);
-                            cout << "значение числителя элемента " << " : ";
+                            cout << "the value of the element's numerator " << " : ";
                             for (int j = 0; j < ch_n; j++)
                             {
                                 std::cin >> ch_digit[j];
                             }
-                            cout << "введите знак числителя элемента " << " : "; bool sign; cin >> sign;
-                            cout << "введите количество знаменателя элемента " << " : "; int zn_n; cin >> zn_n;
+                            cout << "enter the element's numerator sign " << " : "; bool sign; cin >> sign;
+                            cout << "enter the number of the element's denominator " << " : "; int zn_n; cin >> zn_n;
                             vector<int> zn_digit(zn_n);
-                            cout << "значение знаменателя элемента "  << " : ";
+                            cout << "the value of the element denominator "  << " : ";
                             for (int j = 0; j < zn_n; j++)
                             {
                                 std::cin >> zn_digit[j];
@@ -454,19 +453,19 @@ int main(){
                             break;
                         }
                         case 6:{
-                            cout << "Введите еще одно Рациональное число" << endl;
-                            cout << "сейчас введите числ и знам";
-                            cout << "введите количество числителя элемента " << " : "; int ch_n; cin >> ch_n;
+                            cout << "Enter a Rational number" << endl;
+                            cout << "now enter the numerator and denominator";
+                            cout << "enter the number of the element's numerator " << " : "; int ch_n; cin >> ch_n;
                             vector<int> ch_digit(ch_n);
-                            cout << "значение числителя элемента " << " : ";
+                            cout << "the value of the element's numerator " << " : ";
                             for (int j = 0; j < ch_n; j++)
                             {
                                 std::cin >> ch_digit[j];
                             }
-                            cout << "введите знак числителя элемента " << " : "; bool sign; cin >> sign;
-                            cout << "введите количество знаменателя элемента " << " : "; int zn_n; cin >> zn_n;
+                            cout << "enter the element's numerator sign " << " : "; bool sign; cin >> sign;
+                            cout << "enter the number of the element's denominator " << " : "; int zn_n; cin >> zn_n;
                             vector<int> zn_digit(zn_n);
-                            cout << "значение знаменателя элемента "  << " : ";
+                            cout << "the value of the element denominator "  << " : ";
                             for (int j = 0; j < zn_n; j++)
                             {
                                 std::cin >> zn_digit[j];
@@ -478,19 +477,19 @@ int main(){
                             break;
                         }
                         case 7:{
-                            cout << "Введите еще одно Рациональное число" << endl;
-                            cout << "сейчас введите числ и знам";
-                            cout << "введите количество числителя элемента " << " : "; int ch_n; cin >> ch_n;
+                            cout << "Enter a Rational number" << endl;
+                            cout << "now enter the numerator and denominator";
+                            cout << "enter the number of the element's numerator " << " : "; int ch_n; cin >> ch_n;
                             vector<int> ch_digit(ch_n);
-                            cout << "значение числителя элемента " << " : ";
+                            cout << "the value of the element's numerator " << " : ";
                             for (int j = 0; j < ch_n; j++)
                             {
                                 std::cin >> ch_digit[j];
                             }
-                            cout << "введите знак числителя элемента " << " : "; bool sign; cin >> sign;
-                            cout << "введите количество знаменателя элемента " << " : "; int zn_n; cin >> zn_n;
+                            cout << "enter the element's numerator sign " << " : "; bool sign; cin >> sign;
+                            cout << "enter the number of the element's denominator " << " : "; int zn_n; cin >> zn_n;
                             vector<int> zn_digit(zn_n);
-                            cout << "значение знаменателя элемента "  << " : ";
+                            cout << "the value of the element denominator "  << " : ";
                             for (int j = 0; j < zn_n; j++)
                             {
                                 std::cin >> zn_digit[j];
@@ -502,19 +501,19 @@ int main(){
                             break;
                         }
                         case 8:{
-                            cout << "Введите еще одно Рациональное число" << endl;
-                            cout << "сейчас введите числ и знам";
-                            cout << "введите количество числителя элемента " << " : "; int ch_n; cin >> ch_n;
+                            cout << "Enter a Rational number" << endl;
+                            cout << "now enter the numerator and denominator";
+                            cout << "enter the number of the element's numerator " << " : "; int ch_n; cin >> ch_n;
                             vector<int> ch_digit(ch_n);
-                            cout << "значение числителя элемента " << " : ";
+                            cout << "the value of the element's numerator " << " : ";
                             for (int j = 0; j < ch_n; j++)
                             {
                                 std::cin >> ch_digit[j];
                             }
-                            cout << "введите знак числителя элемента " << " : "; bool sign; cin >> sign;
-                            cout << "введите количество знаменателя элемента " << " : "; int zn_n; cin >> zn_n;
+                            cout << "enter the element's numerator sign " << " : "; bool sign; cin >> sign;
+                            cout << "enter the number of the element's denominator " << " : "; int zn_n; cin >> zn_n;
                             vector<int> zn_digit(zn_n);
-                            cout << "значение знаменателя элемента "  << " : ";
+                            cout << "the value of the element denominator "  << " : ";
                             for (int j = 0; j < zn_n; j++)
                             {
                                 std::cin >> zn_digit[j];
@@ -533,12 +532,12 @@ int main(){
                 int symbol_P=1;
                 while (symbol_P != 8) {
                     system("cls");
-                    cout << "Пожалуйста введите многочлен" << endl;
+                    cout << "Please enter the polynomial" << endl;
                     Polynom* P1 = new Polynom();
                     symbol_P = print_Polynom_menu();
                     switch (symbol_P) {
                         case 1:{
-                            cout << "Пожалуйста введите еще один многочлен" << endl;
+                            cout << "Please enter another polynomial" << endl;
                             Polynom* P2 = new Polynom();
                             Polynom* P3 = P1->ADD_PP_P(P2);
                             cout << endl;
@@ -547,7 +546,7 @@ int main(){
                             break;
                         }
                         case 2:{
-                            cout << "Пожалуйста введите еще один многочлен" << endl;
+                            cout << "Please enter another polynomial" << endl;
                             Polynom* P2 = new Polynom();
                             Polynom* P3 = P1->SUB_PP_P(P2);
                             cout << endl;
@@ -556,19 +555,19 @@ int main(){
                             break;
                         }
                         case 3:{
-                            cout << "Введите Рациональное число" << endl;
-                            cout << "сейчас введите числ и знам";
-                            cout << "введите количество числителя элемента " << " : "; int ch_n; cin >> ch_n;
+                            cout << "Enter a Rational number" << endl;
+                            cout << "now enter the numerator and denominator";
+                            cout << "enter the number of the element's numerator " << " : "; int ch_n; cin >> ch_n;
                             vector<int> ch_digit(ch_n);
-                            cout << "значение числителя элемента " << " : ";
+                            cout << "the value of the element's numerator " << " : ";
                             for (int j = 0; j < ch_n; j++)
                             {
                                 std::cin >> ch_digit[j];
                             }
-                            cout << "введите знак числителя элемента " << " : "; bool sign; cin >> sign;
-                            cout << "введите количество знаменателя элемента " << " : "; int zn_n; cin >> zn_n;
+                            cout << "enter the element's numerator sign " << " : "; bool sign; cin >> sign;
+                            cout << "enter the number of the element's denominator " << " : "; int zn_n; cin >> zn_n;
                             vector<int> zn_digit(zn_n);
-                            cout << "значение знаменателя элемента "  << " : ";
+                            cout << "the value of the element denominator "  << " : ";
                             for (int j = 0; j < zn_n; j++)
                             {
                                 std::cin >> zn_digit[j];
