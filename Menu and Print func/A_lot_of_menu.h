@@ -10,7 +10,6 @@ using namespace std;
 
 //Вывод основного меню
 int print_menu() {
-    setlocale(LC_ALL, "Russian");
     int symbol = 1;
     int a = 1;
     while (a) {
@@ -60,20 +59,20 @@ int print_Natural_menu(){
     int a = 1;
     while (a) {
         char arr[16][256] = { "\t Menu of Natural",
-            "1) Сравнение Натуральных чисел",
-            "2) Проверка на ноль",
-            "3) Добавление 1 к натуральному числу",
-            "4) Сложение натуральных чисел",
-            "5) Вычитание из первого большего натурального числа второго меньшего или равного",
-            "6) Умножение натурального числа на цифру",
-            "7) Умножение натурального числа на 10^k",
-            "8) Умножение натуральных чисел",
-            "9) Вычитание из натурального другого, умноженного на цифру, для неотрицательного результата",
-            "10) Вычисление первой цифры деления большего натурального на меньшее, домноженное на 10^k",
-            "11) Частное от деления большего натурального числа на меньшее или равное натуральное с остатком",
-            "12) Остаток от деления большего натурального числа на меньшее или равное натуральное",
-            "13) НОД натуральных чисел",
-            "14) НОК натуральных чисел",
+            "1) Comparison of Natural numbers",
+            "2) Checking for zero",
+            "3) Adding 1 to a natural number",
+            "4) Adding natural numbers",
+            "5) Subtracting from the first larger natural number the second smaller or equal",
+            "6) Multiplying a natural number by a digit",
+            "7) Multiplying a natural number by 10^k",
+            "8) Multiplication of natural numbers",
+            "9) Subtracting from a natural other multiplied by a digit for a non-negative result",
+            "10) Calculating the first digit of the division of the larger natural by the smaller, multiplied by 10^k",
+            "11) The quotient of dividing a larger natural number by a smaller or equal natural number with the remainder",
+            "12) The remainder of dividing a larger natural number by a smaller or equal natural number",
+            "13) The greatest common Divisor of natural numbersvisor of natural numbers",
+            "14) The smallest common quotient of natural number",
             "15) Exit"
         };
         for (int i = 0; i < 16; i++) {
@@ -115,16 +114,16 @@ int print_Integer_menu(){
     int a = 1;
     while (a) {
         char arr[16][256] = { "\t Menu of Integer",
-            "1) Абсолютная величина",
-            "2) Определение положительности",
-            "3) Умножение на -1",
-            "4) Преобразование натурального в целое",
-            "5) Преобразование целого неотрицательного в натуральное",
-            "6) Сумма целых",
-            "7) Разность целых",
-            "8) Умножение целых чисел",
-            "9) Частное от деления целого на целое",
-            "10) Остаток от деления целого на целое",
+            "1) Absolute value",
+            "2) Definition of positivity",
+            "3) Multiplying by -1",
+            "4) Converting a natural to an integer",
+            "5) Converting a non-negative integer to a natural",
+            "6) Sum of integers",
+            "7) Subtracting of integers",
+            "8) Multiplying integers",
+            "9) The quotient of the division of integer to integer",
+            "10) The remainder of the division of integer to integer",
             "11) Exit"
         };
         for (int i = 0; i < 12; i++) {
@@ -166,14 +165,14 @@ int print_Fraction_menu(){
     int a = 1;
     while (a) {
         char arr[16][256] = { "\t Menu of Fraction",
-            "1) Сокращение дробей",
-            "2) Проверка на целостность",
-            "3) Получение из целого дробь",
-            "4) Преобразование дроби в целое",
-            "5) Сложение дробей",
-            "6) Вычитание дробей",
-            "7) Умножение дробей",
-            "8) Деление дробей",
+            "1) Reduction of fractions",
+            "2) Integrity check",
+            "3) Getting a fraction from an integer",
+            "4) Converting a fraction to an integer",
+            "5) Adding fractions",
+            "6) Subtracting fractions",
+            "7) Multiplying fractions",
+            "8) Dividing fractions",
             "9) Exit"
         };
         for (int i = 0; i < 10; i++) {
@@ -216,13 +215,13 @@ int print_Polynom_menu(){
     int a = 1;
     while (a) {
         char arr[16][256] = { "\t Menu of Polynom",
-            "1) Сложение многочленов",
-            "2) Разность многочленов",
-            "3) Умножение на коэффициент",
-            "4) Умножение многочлена на x^k",
-            "5) Старший коэффициент многочлена",
-            "6) Степень многочлена",
-            "7) Производная многочлена",
+            "1) Adding polynomials",
+            "2) Difference of polynomials",
+            "3) Multiplying by a factor",
+            "4) Multiplying a polynomial by x^k",
+            "5) The highest coefficient of the polynomial",
+            "6) Degree of the polynomial",
+            "7) Derivative of the polynomial",
             "8) Exit"
         };
         for (int i = 0; i < 9; i++) {
