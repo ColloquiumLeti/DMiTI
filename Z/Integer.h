@@ -1,4 +1,4 @@
-#pragma
+#pragma once 
 #include <iostream>
 #include <string>
 #include <locale.h>
@@ -21,7 +21,6 @@ public:
 	Integer(int sign, string number) { //Инициализация объекта типа Integer
 		int counter = 0;
 		bool true_input = 1;
-		setlocale(LC_ALL, "Russian");
 		for (counter = 0; counter < number.length(); counter++) { //Проверка на корректный ввод
 			if (!isdigit(number[counter]) && number[counter] != '.') true_input = false;
 		}
