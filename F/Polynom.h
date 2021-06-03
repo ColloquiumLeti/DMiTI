@@ -98,7 +98,7 @@ public:
         }
         for (i; i < cobolt + 1; i++)
         {
-            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены (костыли ебаные)
+            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены
             k->C[j].change_zn(give_me_help);
             vector <int> and_you_too = k->C[j].get_ch(); std::reverse(and_you_too.begin(), and_you_too.end());
             k->C[j].change_ch(and_you_too);
@@ -107,7 +107,7 @@ public:
             vector <int> norzn = this->C[i].get_zn(); std::reverse(norzn.begin(), norzn.end());
             X->C[for_X].change_zn(norzn);
 
-            X->C[for_X] = X->C[for_X].ADD_QQ_Q(k->C[j]);// <---- вот она, вот эта сука
+            X->C[for_X] = X->C[for_X].ADD_QQ_Q(k->C[j]);// <---- вот 
 
             vector <int> new_chisl = X->C[for_X].get_ch(); std::reverse(new_chisl.begin(), new_chisl.end());
             X->C[for_X].change_ch(new_chisl);
@@ -145,7 +145,7 @@ public:
         }
         for (i; i < cobolt + 1; i++)
         {
-            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены (костыли ебаные)
+            vector <int> give_me_help = k->C[j].get_zn(); std::reverse(give_me_help.begin(), give_me_help.end()); // универсальные конструкции замены 
             k->C[j].change_zn(give_me_help);
             vector <int> and_you_too = k->C[j].get_ch(); std::reverse(and_you_too.begin(), and_you_too.end());
             k->C[j].change_ch(and_you_too);
@@ -154,7 +154,7 @@ public:
             vector <int> norzn = this->C[i].get_zn(); std::reverse(norzn.begin(), norzn.end());
             X->C[for_X].change_zn(norzn);
 
-            X->C[for_X] = X->C[for_X].SUB_QQ_Q(k->C[j]);// <---- вот она, вот эта сука
+            X->C[for_X] = X->C[for_X].SUB_QQ_Q(k->C[j]);// <---- вот 
 
             vector <int> new_chisl = X->C[for_X].get_ch(); std::reverse(new_chisl.begin(), new_chisl.end());
             X->C[for_X].change_ch(new_chisl);
